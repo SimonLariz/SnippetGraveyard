@@ -2,8 +2,6 @@ from collections import namedtuple
 
 card = namedtuple("card", ["rank", "suit"])
 
-'''
-
 
 def _str_card(card):
     return f'{card.rank} of {card.suit}s'
@@ -17,14 +15,11 @@ def is_ace(card):
 
 
 card.is_ace = is_ace
-'''
-
 
 def is_ten(card):
     return card.rank in ["Ten", "Jack", "Queen", "King"]
 
-# Sum draft
-
+card.is_ten = is_ten
 
 def sumHand(hand):
     total = 0
@@ -55,6 +50,8 @@ class Deck:
         # Update marker
 
     def shuffle_cards(self):
+
+
 
 
 my_deck = Deck
