@@ -28,3 +28,19 @@ class videoGame:
                 current_scene.draw(self._screen)
                 pygame.display.update()
             current_scene.end()
+
+
+class myRange:
+    def __init__(self, stop):
+        self._start = 0
+        self._stop = stop
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        while True:
+            yield self._start
+            self._start += 1
+            if self._start < self._stop:
+                raise StopIteration()
