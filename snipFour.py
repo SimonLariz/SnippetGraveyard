@@ -14,7 +14,7 @@ class videoGame:
             print("Warning, fonts disabled")
         if not pygame.mixer:
             print("Warning, sound disabled")
-        self._screen_graph = None
+        self._scene_graph = None
 
     def run(self):
         while not self._is_game_over:
@@ -28,6 +28,25 @@ class videoGame:
                 current_scene.draw(self._screen)
                 pygame.display.update()
             current_scene.end()
+
+    '''
+    Run as long as scenes are iterable
+    
+    def run(self):
+        while not self._is_game_over:
+            for scene in self._scene_graph:
+                while scene.is_valid():
+                    self._clock.tick(scene.frame_rate)
+                    for event in pygame.event.get():
+                        scene.process_event(event)
+                    scene.update_scene()
+                    scene.draw_scene(self._screen)
+                    pygame.display.update()
+    '''
+
+
+def main():
+    videoGame().run()
 
 
 class myRange:
